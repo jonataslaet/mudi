@@ -3,8 +3,6 @@ package br.com.jonataslaet.mvc.mudi.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Query;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +21,7 @@ public class HomeController {
 	String retornaHello(Model model) {
 		
 		List<Pedido> pedidos = new ArrayList<>();
-		pedidos = pedidoRepository.retornaTodosOsPedidos();
+		pedidos = pedidoRepository.findAll();
 		
 		model.addAttribute("pedidos", pedidos);
 		return "home";
