@@ -3,6 +3,7 @@ package br.com.jonataslaet.mvc.mudi.controller.dto;
 import javax.validation.constraints.NotBlank;
 
 import br.com.jonataslaet.mvc.mudi.model.Pedido;
+import br.com.jonataslaet.mvc.mudi.model.StatusPedidoEnum;
 
 public class RequisicaoNovoPedido {
 
@@ -48,6 +49,7 @@ public class RequisicaoNovoPedido {
 		pedido.setUrlProduto(urlProduto);
 		pedido.setUrlImagem(urlImagem);
 		pedido.setDescricao(descricao);
+		pedido.setStatus(StatusPedidoEnum.AGUARDANDO);
 		return pedido;
 	}
 }

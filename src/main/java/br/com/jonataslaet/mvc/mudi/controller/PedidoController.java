@@ -35,6 +35,6 @@ public class PedidoController {
 		
 		Pedido pedidoNovo = novoPedido.toPedido();
 		pedidoRepository.save(pedidoNovo);
-		return "pedidos/formulario";		
+		return "redirect:/home";		
 	}
 }
