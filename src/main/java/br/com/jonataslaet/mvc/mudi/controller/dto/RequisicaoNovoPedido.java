@@ -1,13 +1,22 @@
 package br.com.jonataslaet.mvc.mudi.controller.dto;
 
+import javax.validation.constraints.NotBlank;
+
 import br.com.jonataslaet.mvc.mudi.model.Pedido;
 
 public class RequisicaoNovoPedido {
 
+	@NotBlank
 	private String nomeProduto;
+	
+	@NotBlank
 	private String urlProduto;
+	
+	@NotBlank
 	private String urlImagem;
+	
 	private String descricao;
+	
 	public String getNomeProduto() {
 		return nomeProduto;
 	}
