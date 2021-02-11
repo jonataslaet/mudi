@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.jonataslaet.mvc.mudi.PedidoRepository;
 import br.com.jonataslaet.mvc.mudi.controller.dto.RequisicaoNovoPedido;
 import br.com.jonataslaet.mvc.mudi.model.Pedido;
+import br.com.jonataslaet.mvc.mudi.repository.PedidoRepository;
 
 @Controller
 @RequestMapping("/pedidos")

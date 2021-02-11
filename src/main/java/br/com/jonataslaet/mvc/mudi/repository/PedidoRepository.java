@@ -1,4 +1,4 @@
-package br.com.jonataslaet.mvc.mudi;
+package br.com.jonataslaet.mvc.mudi.repository;
 
 import java.util.List;
 
