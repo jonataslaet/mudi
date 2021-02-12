@@ -6,7 +6,7 @@
 	<div class="container">
 		<div th:replace="~{base :: titulo('Novo Pedidoo')}"></div>
 		<div class="card mt-3">
-			<form th:object="${requisicaoNovoPedido}" class="card-body" action="/pedidos/novo" method="post">
+			<form th:object="${requisicaoNovoPedido}" class="card-body" th:action="@{/pedidos/novo}" method="post">
 				<div class="mb-3">
 					<label class="form-label" for="nomeProduto">Produto</label>
 					<input th:field="*{nomeProduto}" class="form-control is-invalid" placeholder="nome do produto">

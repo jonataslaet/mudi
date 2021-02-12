@@ -23,7 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().anyRequest().authenticated()
 			.and().formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/home", true).permitAll())
-			.logout(logout -> logout.logoutUrl("/logout"));
+			.logout(logout -> logout.logoutUrl("/logout"))
+			.csrf().disable();
 	}
 	
 	@Override
@@ -31,8 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
 //		UserDetails user = User.builder().username("jonatas").password(encoder.encode("jonatas")).roles("ADM").build();
-		UserDetails user = User.builder().username("maria").password(encoder.encode("jonatas")).roles("ADM").build();
+//		UserDetails user = User.builder().username("maria").password(encoder.encode("jonatas")).roles("ADM").build();
 		
-		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(encoder).withUser(user);
+		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(encoder);
 	}
 }
