@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -26,8 +27,10 @@ public class HomeController {
 	@GetMapping
 	String findAllByStatusEntregue(Model model, Principal principal) {
 		
+		Sort sort = Sort.by("dataDaEntrega").descending();
+		
 		List<Pedido> pedidos = new ArrayList<>();
-		pedidos = pedidoRepository.findByStatus(StatusPedidoEnum.ENTREGUE);
+		pedidos = pedidoRepository.findByStatus(StatusPedidoEnum.ENTREGUE, sort);
 		
 		model.addAttribute("pedidos", pedidos);
 		return "home";
