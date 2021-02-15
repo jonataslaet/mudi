@@ -24,6 +24,7 @@ public class PedidoRestController {
 	public List<Pedido> getPedidosAguardandoOferta(){
 		Sort sort = Sort.by("id").descending();
 		PageRequest paginacao = PageRequest.of(0, 10, sort);
-		return pedidoRepository.findByStatus(StatusPedidoEnum.AGUARDANDO, paginacao);
+		List<Pedido> pedidosEncontrados = pedidoRepository.findByStatus(StatusPedidoEnum.AGUARDANDO, paginacao);
+		return pedidosEncontrados;
 	}
 }
