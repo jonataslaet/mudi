@@ -36,7 +36,7 @@ public class Pedido {
 	@Enumerated(EnumType.STRING)
 	private StatusPedidoEnum status;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="pedido", fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="pedido", fetch = FetchType.EAGER)
 	private List<Oferta> ofertas;
 	
 	public Long getId() {
