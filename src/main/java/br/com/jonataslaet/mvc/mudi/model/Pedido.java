@@ -28,6 +28,7 @@ public class Pedido {
 	private String urlProduto;
 	private String urlImagem;
 	private String descricao;
+	private boolean ofertaEnviada;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
@@ -102,6 +103,12 @@ public class Pedido {
 		this.descricao = descricao;
 	}
 
+	public boolean isOfertaEnviada() {
+		return ofertaEnviada;
+	}
+	public void setOfertaEnviada(boolean ofertaEnviada) {
+		this.ofertaEnviada = ofertaEnviada;
+	}
 	public StatusPedidoEnum getStatus() {
 		return status;
 	}
