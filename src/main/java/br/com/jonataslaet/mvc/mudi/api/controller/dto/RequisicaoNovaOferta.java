@@ -3,14 +3,24 @@ package br.com.jonataslaet.mvc.mudi.api.controller.dto;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 import br.com.jonataslaet.mvc.mudi.model.Oferta;
 import br.com.jonataslaet.mvc.mudi.util.Data;
 
 public class RequisicaoNovaOferta {
 
 	private Long pedidoId;
+	
+	@Pattern(regexp="^\\d+(\\.\\d+{2})?$")
+	@NotNull
 	private String valor;
+	
+	@Pattern(regexp="^\\d{2}/\\d{2}/\\d{4}$", message = "deve corresponder ao formato dd/MM/yyyy")
+	@NotNull
 	private String dataDaEntrega;
+	
 	private String comentario;
 
 	public Long getPedidoId() {

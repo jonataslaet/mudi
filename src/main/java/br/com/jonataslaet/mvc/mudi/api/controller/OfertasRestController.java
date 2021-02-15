@@ -2,6 +2,8 @@ package br.com.jonataslaet.mvc.mudi.api.controller;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +23,7 @@ public class OfertasRestController {
 	private PedidoRepository pedidoRepository;
 	
 	@PostMapping
-	public Oferta criaOferta(@RequestBody RequisicaoNovaOferta requisicao) {
+	public Oferta criaOferta(@Valid @RequestBody RequisicaoNovaOferta requisicao) {
 		Optional<Pedido> pedidoEncontrado = pedidoRepository.findById(requisicao.getPedidoId());
 		if (!pedidoEncontrado.isPresent()) {
 			return null;
